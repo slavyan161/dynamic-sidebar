@@ -1,7 +1,10 @@
 import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit';
+import mainMenuSlice from './slice/main-menu.slice';
 
 export const store = configureStore({
-  reducer: {},
+  reducer: {
+    mainMenu: mainMenuSlice
+  },
 });
 
 export type AppDispatch = typeof store.dispatch;
