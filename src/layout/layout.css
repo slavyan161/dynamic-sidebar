@@ -1,7 +1,9 @@
 .layout-container {
-    margin: 3rem;
+    /* margin: 0rem 1rem 1rem 1rem; */
+    margin: 0em 15em 0em 15em;
 }
 
 .layout-main-content {
-    margin-left: 2rem;
+    width: 75%;
+    height: 100%;
 }

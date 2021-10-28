@@ -9,12 +9,10 @@ export interface IToggleSwitch {
 
 function ToggleSwitchComponent(props: IToggleSwitch) {
     return (
-        <div>
-            <label className="switch">
-                <InputComponent type="checkbox" onChange={props.onChange} isChecked={props.value} />
-                <span className={`slider ${props.isRound && 'round'}`}></span>
-            </label>
-        </div>
+        <label className="switch">
+            <InputComponent type="checkbox" onChange={props.onChange} isChecked={props.value} />
+            <span className={`slider ${props.isRound && 'round'}`}></span>
+        </label>
     )
 }
 

@@ -1,4 +1,38 @@
 .sidebar-container {
-    margin-left: 2rem;
-    margin-right: 2rem;
+    width: 280px;
+}
+
+.sidebar .items {
+    position: relative;
+    padding: 10px 0px 10px 10px;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0px;
+}
+
+.sidebar .items {
+    text-align: left;
+}
+
+.sidebar .parent {
+    cursor: pointer;
+    text-transform: capitalize;
+}
+
+.sidebar .parent.has-child::after {
+    content: "\25bc";
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    right: 0px;
+}
+
+.sidebar .parent.has-child.true::after {
+    content: "\25B2";
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    right: 0px;
 }

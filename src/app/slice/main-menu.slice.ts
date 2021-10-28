@@ -1,49 +1,29 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { RootState } from '../../app/store';
+import { MainMenuService } from './main-menu-service';
 
 export interface IMainMenuState {
-    id: string,
-    isShowed: boolean,
-    isAllowed: boolean
-    status?: string
-    childs?: IMainMenuState[]
+  id: string,
+  isShowed: boolean,
+  isAllowed: boolean
+  childs?: IMainMenuState[],
 }
-const initialJsonData = require('./../../assets/dummy-menu.json');
-const initialState: IMainMenuState = initialJsonData;
-
-// export const getAsyncData = createAsyncThunk(
-//   'mainMenu/fetchData',
-//   async (promiseRestService: Function) => {
-//     const response = await promiseRestService();
-//     return response.data;
-//   }
-// );
+const initialState: IMainMenuState[] = [];
 
 export const mainMenuSlice = createSlice({
   name: 'mainMenu',
   initialState,
   // The `reducers` field lets us define reducers and generate associated actions
   reducers: {
-    onToggleChange: (state, action: PayloadAction<Array<Record<any, any>>>) => {
-        console.log(state)
-    //   state.selectedData = action.payload;
+    onInit: (state, action) => state = action.payload,
+    onToggleChange: (state, action: PayloadAction<any>) => {
+      MainMenuService.filterMenu(state, action.payload.id)
     },
     reset: state => state = initialState
-  },
-//   extraReducers: (builder) => {
-//     builder
-//       .addCase(getAsyncData.pending, (state) => {
-//         state.status = 'loading';
-//       })
-//       .addCase(getAsyncData.fulfilled, (state, action) => {
-//         state.status = 'idle';
-//         console.log('getAsyncData Extra Reducers', action.payload)
-//         // state.listData = action.payload;
-//       });
-//   },
+  }
 });
 
-export const { onToggleChange } = mainMenuSlice.actions;
+export const { onToggleChange, onInit } = mainMenuSlice.actions;
 
 export const mainMenuState = (state: RootState) => state.mainMenu;
 
