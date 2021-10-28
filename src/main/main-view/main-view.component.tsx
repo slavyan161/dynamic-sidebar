@@ -24,7 +24,7 @@ function MainViewComponent(props: IMainViewComponent) {
                 <div className={`card ${props.depth < 1 && 'pb-5'}`} key={index}>
                     <div className={`pl-${props.depth}`} style={{ textAlign: 'left' }} key={index}>
                         <ToggleSwitchComponent
-                            isRound={false}
+                            isRound={true}
                             onChange={(e) => {
                                 dispatch(onToggleChange(menu))
                             }}

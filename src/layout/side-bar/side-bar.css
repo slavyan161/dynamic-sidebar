@@ -21,6 +21,10 @@
     text-transform: capitalize;
 }
 
+.sidebar .parent.has-child.true {
+    padding-bottom: 15px;
+}
+
 .sidebar .parent.has-child::after {
     content: "\25bc";
     width: 20px;
@@ -35,4 +39,9 @@
     height: 20px;
     position: absolute;
     right: 0px;
+}
+
+.parent:hover {
+    text-decoration: underline;
+    -webkit-transform: scale(1.05);
 }

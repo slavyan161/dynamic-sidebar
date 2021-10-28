@@ -7,7 +7,6 @@ export interface ISideBarItem {
     isShowed: boolean,
     isAllowed: boolean,
     childs?: ISideBarItem[],
-
 }
 
 
@@ -20,17 +19,19 @@ function SideBarItemComponent(props: ISideBarItem) {
         <>
             {isAllowed && (
                 <li className="items">
-                    <div className="sidebar">
+                    <ul>
                         {isAllowed && (
-                            <div className={`parent ${MainMenuService.isAllowedChild(childs) ? `has-child ${collapsed}` : ''}`} onClick={() => setCollapsed(!collapsed)}>
+                            <li className={`parent ${MainMenuService.isAllowedChild(childs) ? `has-child ${collapsed}` : ''}`} onClick={() => setCollapsed(!collapsed)}>
                                 {textParserService.beatufiulLabel(id)}
-                            </div>
+                            </li>
                         )}
                         {collapsed && childs?.map((child: any, index: number) => (
-                            <SideBarItemComponent key={index} {...child} />
+                            <ul>
+                                <SideBarItemComponent key={index} {...child} />
+                            </ul>
                         ))}
 
-                    </div>
+                    </ul>
                 </li>
             )}
         </>
